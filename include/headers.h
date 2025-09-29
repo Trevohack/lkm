@@ -40,7 +40,7 @@
 #define MAX_PATH_LEN 256
 #define MAX_PREFIX_LEN 32
 
-// Signal definitions for older kernels
+// Signal definitions
 #ifndef SIGKILL
 #define SIGKILL 9
 #endif
@@ -65,30 +65,20 @@
 #define PTRACE_PEEKTEXT 1
 #endif
 
-// Directory structures for compatibility
+// Only define if not already defined by kernel
+#ifndef _LINUX_DIRENT_H
 struct linux_dirent {
     unsigned long d_ino;
     unsigned long d_off;
     unsigned short d_reclen;
     char d_name[1];
 };
+#endif
 
-struct linux_dirent64 {
-    u64 d_ino;
-    s64 d_off;
-    unsigned short d_reclen;
-    unsigned char d_type;
-    char d_name[0];
-};
-
-// Global configuration functions (implemented by main.c)
+// Global configuration functions
 extern void set_hidden_port(int port);
 extern void set_magic_signal(int signal);
 extern void set_hidden_prefixes(char **prefixes);
 extern void set_hidden_ips(char **ips);
-
-// Utility functions (can be implemented in any hook file)
-static inline int should_hide_file(const char *name);
-static inline int should_hide_connection(int port, const char *ip);
 
 #endif // HEADERS_H
