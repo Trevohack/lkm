@@ -20,7 +20,6 @@ static asmlinkage long (*orig_ioctl)(const struct pt_regs *regs);
 static asmlinkage long hooked_ioctl(const struct pt_regs *regs) {
     unsigned int fd = (unsigned int)regs->di;
     unsigned int cmd = (unsigned int)regs->si;
-    unsigned long arg = regs->dx;
     struct file *file;
     
     // Get file structure
