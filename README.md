@@ -15,7 +15,48 @@
 > Venom — educational only. This repository explains concepts and historic categories of kernel/userland malware so defenders can recognize, study, and detect them. Use only in legal, controlled environments (isolated VMs, CTF labs you own, or instructor-approved training).
 
 
-## 
+## Features
+
+* <span style="color:#ffb86b">Output interception</span>
+  * Concept: intercepts kernel write paths to monitor or protect tracing/logging state (protect ftrace).
+
+* <span style="color:#ffb86b">Input interception</span>
+  * Concept: intercepts kernel read paths to monitor or sanitize reads that might reveal internal state (protect ftrace).
+
+* <span style="color:#70a1ff">_Directory enumeration filtering (64-bit)</span>
+  * Concept: filters directory listings to omit files/directories from ordinary enumeration (hide directories).
+
+( <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)**span>
+  * Concept: same high-level role as getdents64 for compatibility layers — intercepts directory listing calls.
+
+* <span style="color:#b39cff">Module load monitoring / control</span>
+  * Concept: observes or blocks attempts to insert kernel modules (used to detect or prevent competing/intrusive modules).
+
+* <span style="color:#b39cff">FD-based module load monitoring</span>
+  * Concept: monitors file-descriptor based module loads (modern module insertion path) for the same protective purpose.
+
+* <span style="color:#b39cff">Module unload monitoring / protection</span>
+  * Concept: watches or intercepts module removal attempts (protects the running module or detects tampering).
+
+* <span style="color:#7bed9f">Signal interception / control</span>
+  * Concept: intercepts signal delivery paths to observe, block, or handle attempts to terminate or signal components.
+
+* <span style="color:#ffa6c9">Device control / protection</span>
+  * Concept: intercepts ioctl calls to device drivers (used to monitor or limit probes from forensic/protection tooling).
+
+* <span style="color:#70a1ff">TCP /proc rendering hooks</span>
+  * Concept: alters or filters TCP socket listings shown via /proc/net/tcp and /proc/net/tcp6 (used to conceal endpoints).
+
+* <span style="color:#70a1ff">UDP /proc rendering hooks</span>
+  * Concept: alters or filters UDP socket listings shown via /proc/net/udp and /proc/net/udp6.
+
+* <span style="color:#70a1ff">Packet receive path interception</span>
+  * Concept: intercepts raw packet receive paths (AF_PACKET/TPACKET) to filter or observe packets delivered to userland captures.
+
+## Demonstration
+
+
+
 
 ## Syscalls / Kernel hooks monitored by Venom
 
