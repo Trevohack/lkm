@@ -26,7 +26,7 @@
 * <span style="color:#70a1ff">_Directory enumeration filtering (64-bit)</span>
   * Concept: filters directory listings to omit files/directories from ordinary enumeration (hide directories).
 
-( <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)**span>
+* <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)**span>
   * Concept: same high-level role as getdents64 for compatibility layers — intercepts directory listing calls.
 
 * <span style="color:#b39cff">Module load monitoring / control</span>
@@ -52,9 +52,20 @@
 
 * <span style="color:#70a1ff">Packet receive path interception</span>
   * Concept: intercepts raw packet receive paths (AF_PACKET/TPACKET) to filter or observe packets delivered to userland captures.
+ 
 
-## Demonstration
+## Installation
 
+```bash
+git clone https://github.com/Trevohack/Venom
+cd Venom
+make
+insmod venom.ko
+```
+
+- And let the venom spread 
+
+<img width="1556" height="303" alt="image" src="https://github.com/user-attachments/assets/82250e22-c4c2-48a4-80f0-d9bed95e5778" />
 
 
 
@@ -82,4 +93,25 @@
 - If you are a defender: audit for the indicators in the rightmost column (e.g., mismatched `/proc` output, failed module loads, anomalies in read/write behavior, and differences between passive packet captures and `/proc/net`).  
 - If you are a researcher: use isolated, instrumented environments (air-gapped VMs, offline snapshots) and follow responsible disclosure and legal guidelines before experimenting.
 
+---
 
+## Finishing Touches
+
+Venom is not a weapon — it’s a **research & educational project**.  
+Everything here is designed to help defenders, students, and researchers understand how kernel-level stealth techniques have historically worked, so they can better **detect, analyze, and defend** against them.
+
+✔️ **Stay Responsible**  
+Use this content only in safe, legal environments you fully control (e.g., isolated VMs, CTF labs, instructor-approved setups).  
+
+✔️ **Contribute for Good**  
+Pull requests that improve documentation, defensive detection notes, or historical references are welcome. Contributions must follow the spirit of responsible research — **no weaponized code, no operational exploits.**
+
+✔️ **Respect the Ecosystem**  
+This repo is about knowledge-sharing, not misuse. Always respect the boundaries of ethical hacking and your local laws. When in doubt, **don’t run it on production systems**.
+
+---
+
+> **Closing note:**  
+> Security is about understanding *both sides* of the coin — the offensive techniques and the defensive countermeasures. Venom exists so defenders can **see what’s possible** and **build stronger protections** in the future.  
+
+---
