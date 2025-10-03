@@ -88,7 +88,7 @@ insmod venom.ko
 
 ---
 
-# Quick guidance for readers (defensive)
+### Quick guidance for readers (defensive)
 - This table documents *which kernel touchpoints* Venom monitors and *why* — not how to implement hooks.  
 - If you are a defender: audit for the indicators in the rightmost column (e.g., mismatched `/proc` output, failed module loads, anomalies in read/write behavior, and differences between passive packet captures and `/proc/net`).  
 - If you are a researcher: use isolated, instrumented environments (air-gapped VMs, offline snapshots) and follow responsible disclosure and legal guidelines before experimenting.
@@ -101,10 +101,10 @@ Venom is not a weapon — it’s a **research & educational project**.
 Everything here is designed to help defenders, students, and researchers understand how kernel-level stealth techniques have historically worked, so they can better **detect, analyze, and defend** against them.
 
 ✔️ **Stay Responsible**  
-Use this content only in safe, legal environments you fully control (e.g., isolated VMs, CTF labs, instructor-approved setups).  
+Use this content only in safe, legal environments you fully control 
 
 ✔️ **Contribute for Good**  
-Pull requests that improve documentation, defensive detection notes, or historical references are welcome. Contributions must follow the spirit of responsible research — **no weaponized code, no operational exploits.**
+Pull requests that improve documentation, defensive detection notes, or historical references are welcome. Contributions must follow the spirit of responsible research **no weaponized code, no operational exploits.**
 
 ✔️ **Respect the Ecosystem**  
 This repo is about knowledge-sharing, not misuse. Always respect the boundaries of ethical hacking and your local laws. When in doubt, **don’t run it on production systems**.
@@ -112,6 +112,6 @@ This repo is about knowledge-sharing, not misuse. Always respect the boundaries 
 ---
 
 > **Closing note:**  
-> Security is about understanding *both sides* of the coin — the offensive techniques and the defensive countermeasures. Venom exists so defenders can **see what’s possible** and **build stronger protections** in the future.  
+> Security is about understanding *both sides* of the coin the offensive techniques and the defensive countermeasures. Venom exists so defenders can **see what’s possible** and **build stronger protections** in the future.  
 
 ---
