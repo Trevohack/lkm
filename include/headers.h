@@ -1,7 +1,7 @@
 #ifndef HEADERS_H
 #define HEADERS_H
 
-// System includes
+
 #include <linux/syscalls.h>
 #include <linux/tcp.h>
 #include <linux/udp.h>
@@ -35,12 +35,11 @@
 #include <linux/capability.h>
 #include <linux/ptrace.h>
 
-// Constants
 #define BUFFER_SIZE 4096
 #define MAX_PATH_LEN 256
 #define MAX_PREFIX_LEN 32
 
-// Signal definitions
+
 #ifndef SIGKILL
 #define SIGKILL 9
 #endif
@@ -51,7 +50,6 @@
 #define SIGSTOP 19
 #endif
 
-// PTRACE definitions
 #ifndef PTRACE_TRACEME
 #define PTRACE_TRACEME 0
 #endif
@@ -65,8 +63,8 @@
 #define PTRACE_PEEKTEXT 1
 #endif
 
-// Only define if not already defined by kernel
-#ifndef _LINUX_DIRENT_H
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,0,0)
 struct linux_dirent {
     unsigned long d_ino;
     unsigned long d_off;
@@ -75,10 +73,10 @@ struct linux_dirent {
 };
 #endif
 
-// Global configuration functions
+
 extern void set_hidden_port(int port);
 extern void set_magic_signal(int signal);
 extern void set_hidden_prefixes(char **prefixes);
 extern void set_hidden_ips(char **ips);
 
-#endif // HEADERS_H
+#endif 
