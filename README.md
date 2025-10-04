@@ -26,7 +26,7 @@
 * <span style="color:#70a1ff">Directory enumeration filtering (64-bit)</span>
   * Concept: filters directory listings to omit files/directories from ordinary enumeration (hide directories).
 
-* <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)**span>
+* <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)</span>
   * Concept: same high-level role as getdents64 for compatibility layers — intercepts directory listing calls.
 
 * <span style="color:#b39cff">Module load monitoring / control</span>
