@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center"> 
   <img src="https://i.postimg.cc/wBzfJZYW/venom.png" alt="banner" style="max-width:100%; border-radius:12px;"/> 
 </div>
 
@@ -95,6 +95,38 @@ Browse the docs: [docs](./docs)
 | `tcp4_seq_show` / `tcp6_seq_show` | `seq_file` show functions used by `/proc/net/tcp` and `/proc/net/tcp6` to render socket lists | Hooked to hide/modify network socket listings (IPs/ports) so Venom's network activity is concealed | Compare kernel socket tables vs. observed network connections (ss/netstat/tcpdump). Discrepancies indicate tampering. |
 | `udp4_seq_show` / `udp6_seq_show` | `seq_file` show functions for `/proc/net/udp` and `/proc/net/udp6` | Hooked to hide/modify UDP socket listings and protect IPs/ports Venom uses | Same as TCP — cross-check with packet captures and /proc/net content. |
 | `tpacket_rcv` | Packet receive path for AF_PACKET/TPACKET (raw packet capture path) | Hooked to intercept packet receive, filter forensic captures, or protect traffic relating to Venom | Packet capture tools may see missing packets or altered timestamps; compare multiple capture points (host vs. bridge) to spot filtering. |
+
+
+
+```mermaid
+flowchart TD
+  start([Start / Module init])
+  conf(["Load configuration: hidden ports, IP markers, patterns"])
+  install(["Install hook wrappers: seq_show, tpacket_rcv, ioctl, kill, ..."])
+  active(["Hooks active"])
+  eventa(["Userland enumeration: read /proc/net/tcp"])
+  hookcheck{Entry matches hidden criteria?}
+  skip(["Filter / Skip entry - hidden from userland"])
+  pass(["Pass-through - normal rendering"])
+  packetin(["Packet arrives (skb)"])
+  packetcheck{Port or IP match?}
+  drop(["Drop packet - suppressed from host capture"])
+  deliver(["Deliver packet to consumers"])
+  stop([Module idle / waiting])
+
+  start --> conf --> install --> active
+  active --> eventa --> hookcheck
+  hookcheck -->|Yes| skip
+  hookcheck -->|No| pass
+  active --> packetin --> packetcheck
+  packetcheck -->|Yes| drop
+  packetcheck -->|No| deliver
+  pass --> stop
+  skip --> stop
+  drop --> stop
+  deliver --> stop 
+```
+
 
 ---
 
