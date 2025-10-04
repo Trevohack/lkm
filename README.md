@@ -72,9 +72,9 @@ insmod venom.ko
 
 The `docs` folder contains the project's design and reference material. Quick links:
 
-- [Syscall Hooks (overview)](./docs/syscall-hooks.md) — which hooks are monitored and why (non-operational)  
-- [Diagrams](./docs/diagrams) — Flow and structure diagrams
-- [Detection](./docs/DETECTION.md) — defensive signals, suggested audit checks, and safe test advice
+- [Syscall Hooks (overview)](./docs/syscall_hooked.md) — which hooks are monitored and why (non-operational)  
+- [Diagrams](./docs) — Flow and structure diagrams
+- [Detection](./docs/detection) — defensive signals, suggested audit checks, and safe test advice
 
 Browse the docs: [docs](./docs)
 
