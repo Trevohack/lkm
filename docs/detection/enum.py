@@ -1,4 +1,3 @@
-#!/usr/bin/python3  
 import os
 import subprocess
 from rich.console import Console
