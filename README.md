@@ -23,7 +23,7 @@
 * <span style="color:#ffb86b">Input interception</span>
   * Concept: intercepts kernel read paths to monitor or sanitize reads that might reveal internal state (protect ftrace).
 
-* <span style="color:#70a1ff">_Directory enumeration filtering (64-bit)</span>
+* <span style="color:#70a1ff">Directory enumeration filtering (64-bit)</span>
   * Concept: filters directory listings to omit files/directories from ordinary enumeration (hide directories).
 
 * <span style="color:#70a1ff">Directory enumeration filtering (32-bit/compat)**span>
@@ -68,8 +68,18 @@ insmod venom.ko
 <img width="1556" height="303" alt="image" src="https://github.com/user-attachments/assets/82250e22-c4c2-48a4-80f0-d9bed95e5778" />
 
 
+## 📚 Documentation
 
-## Syscalls / Kernel hooks monitored by Venom
+The `docs` folder contains the project's design and reference material. Quick links:
+
+- [Syscall Hooks (overview)](./docs/syscall-hooks.md) — which hooks are monitored and why (non-operational)  
+- [Diagrams](./docs/diagrams) — Flow and structure diagrams
+- [Detection](./docs/DETECTION.md) — defensive signals, suggested audit checks, and safe test advice
+
+Browse the docs: [docs](./docs)
+
+
+### Syscalls / Kernel hooks monitored by Venom
 
 | Hook symbol | High-level purpose | Why Venom hooks it (intended behavior) | Defender notes / what to look for |
 |-------------|--------------------|----------------------------------------|-----------------------------------|
@@ -88,10 +98,12 @@ insmod venom.ko
 
 ---
 
-### Quick guidance for readers (defensive)
-- This table documents *which kernel touchpoints* Venom monitors and *why* — not how to implement hooks.  
+#### Quick guidance for readers (defensive)
+- This table documents *which kernel touchpoints* Venom monitors and *why*.  
 - If you are a defender: audit for the indicators in the rightmost column (e.g., mismatched `/proc` output, failed module loads, anomalies in read/write behavior, and differences between passive packet captures and `/proc/net`).  
 - If you are a researcher: use isolated, instrumented environments (air-gapped VMs, offline snapshots) and follow responsible disclosure and legal guidelines before experimenting.
+
+
 
 ---
 
