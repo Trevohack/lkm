@@ -1,3 +1,21 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: insmod.c
+ *
+ * Purpose:
+ *  - Conceptual notes on module insertion and related kernel entry points
+ *    (init_module / finit_module) including detection patterns and
+ *    common failure indicators defenders might see.
+ *
+ * Contents (documentation-only):
+ *  - Prevents insertion of new modules to keep only venom in the kernel 
+ *  - Prevents deletion of venom 
+ *
+ * Author: Trevohack 
+ */
+
+
 #ifndef INSMOD_H
 #define INSMOD_H
 
