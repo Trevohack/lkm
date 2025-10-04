@@ -231,13 +231,3 @@ auditctl -w /proc/modules -p r -k modules-watch
 
 ---
 
-## Next steps & recommended reading
-
-* Maintain a known-good baseline of the above paths for all critical hosts.
-* Integrate these checks in automated monitoring (SIEM/EDR) and alert on divergences (e.g., `/proc/modules` changes, new `kprobe_events`).
-* When unsure, isolate the host, collect artifacts, and analyze offline or in a dedicated analysis environment
-
-
-
-* Produce a ready-to-run `collect_forensics.sh` script that **only reads and copies** the above files into a timestamped directory (safe, read-only operations) for your IR playbook, or
-* Create a `docs/DETECTION.md` formatted file with the content above and a short TOC for your repo. Which would yo
