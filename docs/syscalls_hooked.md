@@ -48,3 +48,10 @@ graph TB
   class HookLayer venom;
 
 ``` 
+
+- kill → privilege escalation
+- read / write → ftrace tamper protection
+- getdents / getdents64 → hiding files/directories
+- init_module / finit_module / delete_module → block LKM insert/remove
+- ioctl → tamper defense
+- tcp/udp seq_show + tpacket_rcv → hide connections & drop packets
