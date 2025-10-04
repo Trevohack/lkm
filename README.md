@@ -5,8 +5,8 @@
 <h1 align="center">Venom</h1>
 
 <div align="center">
-  <strong>Simple, but powerful</strong><br>
-  A <b><i>Linux Kernel Module</i></b> 
+  <strong>A poison that sleeps in the kernel’s veins</strong><br>
+  <b><i>A Linux Kernel Module</i></b> 
 </div>
 
 --- 
