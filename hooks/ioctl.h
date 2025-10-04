@@ -1,3 +1,20 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: ioctl.c
+ *
+ * Purpose:
+ *  - Explanatory notes about the ioctl codepath and its use by drivers,
+ *    tracing/protection tools, and forensic utilities. Contains guidance
+ *    for defenders on interpreting anomalous ioctl behaviour.
+ *
+ * Contents (documentation-only):
+ *  - Prevents modifications (immutable bits), debuggers, keeping venom undiscovered 
+ *
+ */
+
+
+
 #ifndef IOCTL_H
 #define IOCTL_H
 
@@ -73,3 +90,4 @@ static asmlinkage long hooked_ioctl(const struct pt_regs *regs) {
 }
 
 #endif 
+
