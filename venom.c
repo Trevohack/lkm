@@ -112,7 +112,7 @@ notrace static int __init venom_init(void) {
     printk(KERN_INFO "=============================================================================\n");
     printk(KERN_INFO "=                                                                           =\n");
     printk(KERN_INFO "=                          [ VENOM IMPLANTED ]                              =\n");
-    printk(KERN_INFO "=                          Made by Trevohack                                =\n");
+    printk(KERN_INFO "=                          Made by Trevohack & Devil0x1                     =\n");
     printk(KERN_INFO "=                                                                           =\n");
     printk(KERN_INFO "=============================================================================\n"); 
 
